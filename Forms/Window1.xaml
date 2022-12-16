@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfExample.Forms.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExample.Forms"
+        xmlns:vm ="clr-namespace:WpfExample.ViewModels"
+        d:DataContext="{d:DesignInstance vm:Window1ViewModel}"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <DataGrid x:Name="dataGrid" ItemsSource="{Binding ItemsSource}" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="Cell" SelectionChanged="dataGrid_SelectionChanged" CellEditEnding="dataGrid_CellEditEnding" CurrentCellChanged="dataGrid_CurrentCellChanged" SelectedCellsChanged="dataGrid_SelectedCellsChanged">
+        <DataGrid.Columns>
+            <DataGridTextColumn>
+            </DataGridTextColumn>
+
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <ComboBox IsEditable="True" IsReadOnly="True" GotFocus="ComboBox_GotFocus" LostFocus="ComboBox_LostFocus" FocusableChanged="ComboBox_FocusableChanged">
+                        </ComboBox>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            
+            <DataGridTextColumn>
+            </DataGridTextColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</Window>
